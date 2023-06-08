@@ -1,0 +1,21 @@
+https://cirro.cloudhebat.com:2222/user/email/create-account
+
+function createEmail(user, passwd2, passwd, quota, domain) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/CMD_EMAIL_POP?json=yes");
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    var emailData = {
+        user: user,
+        passwd2: passwd2,
+        passwd: passwd,
+        quota: quota,
+        domain: domain,
+        json: "yes",
+        action: "create",
+    };
+
+    xhr.send(JSON.stringify(emailData));
+}
+
+createEmail("triekamarwoto", "1234", "1234", "5", "ourdesa.my.id")
